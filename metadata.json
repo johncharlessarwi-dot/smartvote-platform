@@ -1,0 +1,6 @@
+{
+  "name": "SmartVote AI Architecture Studio",
+  "description": "Enterprise System Architecture, Database Design, and Prisma Schema for SmartVote AI Election Management System",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
