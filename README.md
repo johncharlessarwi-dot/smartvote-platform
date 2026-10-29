@@ -275,3 +275,7 @@ Software Developer · Computer Science Student · Founder of JOHN ONLINE SERVICE
 <sub>Created by JOHN ONLINE SERVICES AND APPLICATIONS</sub>
 
 </div>
+
+## Developer portfolio
+
+Explore the developer's other software projects and professional profile: [John Charles Sarwi — Software Developer in Tanzania](https://john-charles-sarwi-portfolio.vercel.app/).
