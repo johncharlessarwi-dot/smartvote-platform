@@ -447,13 +447,8 @@ app.post("/api/voting/cast-vote", (_req, res) => {
   return res.status(501).json({ error: "Real voting is unavailable until identity, ballot encryption and persistent audit storage are configured." });
 });
 
-app.get("/api/voting/status", (req, res) => {
-  res.json({
-    hasVoted: true,
-    votedAt: new Date().toISOString(),
-    election: "MWECAU Computer Science Club Election 2026",
-    confirmationCode: "SV-827391"
-  });
+app.get("/api/voting/status", (_req, res) => {
+  return res.status(501).json({ error: "Verified voter status is unavailable in this prototype." });
 });
 
 // --- MODULE 6: REAL-TIME LIVE RESULTS SYSTEM ---
