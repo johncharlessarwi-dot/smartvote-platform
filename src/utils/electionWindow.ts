@@ -1,0 +1,1 @@
+export function isElectionOpen(start: string, end: string, now: string): boolean { const s=Date.parse(start),e=Date.parse(end),n=Date.parse(now); return [s,e,n].every(Number.isFinite)&&s<e&&n>=s&&n<=e; }
