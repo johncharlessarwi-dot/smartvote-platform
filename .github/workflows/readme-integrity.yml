@@ -1,0 +1,44 @@
+name: README integrity
+
+on:
+  push:
+    paths:
+      - README.md
+      - assets/readme/**
+      - .github/workflows/readme-integrity.yml
+  pull_request:
+    paths:
+      - README.md
+      - assets/readme/**
+      - .github/workflows/readme-integrity.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-readme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Validate README and local animation
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s README.md
+          grep -Fq 'https://wa.me/255698170989' README.md
+          grep -Fq 'https://john-charles-sarwi-portfolio.vercel.app/' README.md
+          if grep -Fq 'assets/readme/project-motion.svg' README.md; then
+            test -s assets/readme/project-motion.svg
+          elif grep -Fq 'assets/readme/animated-banner.svg' README.md; then
+            test -s assets/readme/animated-banner.svg
+          else
+            echo 'Expected a local animated banner reference' >&2
+            exit 1
+          fi
+          echo 'README links and local animation asset verified.'
