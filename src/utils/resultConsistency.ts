@@ -1,0 +1,1 @@
+export function tallyMatchesTotal(counts:number[],total:number):boolean { return Number.isSafeInteger(total)&&total>=0&&counts.every(c=>Number.isSafeInteger(c)&&c>=0)&&counts.reduce((a,b)=>a+b,0)===total; }
