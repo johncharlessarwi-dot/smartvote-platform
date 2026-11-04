@@ -459,6 +459,7 @@ app.get("/api/results/live/:electionId", (req, res) => {
   const participation = ((totalVotes / totalRegistered) * 100).toFixed(2);
 
   res.json({
+    dataMode: "DEMO_ONLY_NOT_VERIFIED_RESULTS",
     election: "MWECAU Computer Science Club Election 2026",
     electionId,
     totalRegisteredVoters: totalRegistered,
@@ -484,7 +485,7 @@ app.get("/api/results/live/:electionId", (req, res) => {
     securityStatus: {
       anomalyDetected: false,
       activeSecurityAlerts: 0,
-      concurrencyRate: "14,200 req/sec (Redis cached)"
+      concurrencyRate: "Not measured in prototype"
     }
   });
 });
