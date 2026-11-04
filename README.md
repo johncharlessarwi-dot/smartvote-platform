@@ -283,3 +283,18 @@ Software Developer · Computer Science Student · Founder of JOHN ONLINE SERVICE
 ## Developer portfolio
 
 Explore the developer's other software projects and professional profile: [John Charles Sarwi — Software Developer in Tanzania](https://john-charles-sarwi-portfolio.vercel.app/).
+
+---
+
+<!-- Developer contact links -->
+<div align="center">
+  <h3>Connect with the developer</h3>
+  <a href="https://wa.me/255698170989?text=Habari%20John%2C%20nimeona%20project%20yako%20GitHub.">
+    <img src="https://img.shields.io/badge/WhatsApp-Chat%20with%20John-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp John Charles Sarwi" />
+  </a>
+  <a href="https://john-charles-sarwi-portfolio.vercel.app/">
+    <img src="https://img.shields.io/badge/Portfolio-View%20Developer%20Profile-146C94?style=for-the-badge&logo=vercel&logoColor=white" alt="John Charles Sarwi developer portfolio" />
+  </a>
+  <p><strong>Developer:</strong> <a href="https://john-charles-sarwi-portfolio.vercel.app/">John Charles Sarwi</a> · Tanzania</p>
+</div>
+<!-- End developer contact links -->
