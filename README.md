@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/readme/project-motion.svg" width="100%" alt="SMARTVOTE animated overview banner" />
+</div>
+
  
 <div align="center">
 
