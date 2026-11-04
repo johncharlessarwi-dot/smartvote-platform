@@ -442,47 +442,9 @@ let mockAuditLogs: any[] = [
   { id: "log-1", userId: "user-2", action: "CAST_VOTE", description: "Successfully cast encrypted ballot in election el-1", ipAddress: "192.168.1.50", createdAt: new Date().toISOString() }
 ];
 
-app.post("/api/voting/cast-vote", (req, res) => {
-  const { electionId, votes } = req.body;
-  if (!electionId || !votes || !Array.isArray(votes)) {
-    return res.status(400).json({ statusCode: 400, message: "Invalid voting payload. electionId and votes array required." });
-  }
-
-  // Check duplicate vote constraint simulation
-  const voterId = "user-2"; // simulated authenticated user
-  const existingVote = mockVotes.find(v => v.electionId === electionId && v.voterId === voterId);
-  if (existingVote) {
-    return res.status(409).json({ statusCode: 409, message: "Duplicate vote rejected: Voter has already cast a ballot in this election." });
-  }
-
-  // Record votes with AES-256 simulation and audit logs
-  for (const vote of votes) {
-    mockVotes.push({
-      id: "v-" + (mockVotes.length + 1),
-      electionId,
-      positionId: vote.positionId,
-      candidateId: vote.candidateId,
-      voterId,
-      encryptedVote: "aes256:iv:encrypted_" + Buffer.from(vote.candidateId).toString('base64'),
-      createdAt: new Date().toISOString()
-    });
-  }
-
-  mockAuditLogs.push({
-    id: "log-" + (mockAuditLogs.length + 1),
-    userId: voterId,
-    action: "CAST_VOTE",
-    description: `Casted ${votes.length} ballots for election ${electionId}`,
-    ipAddress: "192.168.1.105",
-    createdAt: new Date().toISOString()
-  });
-
-  const confirmationCode = "SV-" + Math.floor(100000 + Math.random() * 900000);
-  res.status(201).json({
-    success: true,
-    message: "Vote submitted successfully with AES-256 encryption and transaction rollback safety",
-    confirmationCode
-  });
+app.post("/api/voting/cast-vote", (_req, res) => {
+  // Prototype-only: refuse to claim ballots are encrypted or durably stored.
+  return res.status(501).json({ error: "Real voting is unavailable until identity, ballot encryption and persistent audit storage are configured." });
 });
 
 app.get("/api/voting/status", (req, res) => {
