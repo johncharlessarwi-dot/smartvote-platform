@@ -361,15 +361,9 @@ app.post("/api/auth/register", (req, res) => {
   });
 });
 
-app.post("/api/auth/login", (req, res) => {
-  const { email, password } = req.body;
-  const user = mockUsers.find(u => u.email === email) || mockUsers[0];
-  res.json({
-    message: "Authentication successful",
-    accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.mockAccessTokenJwtToken",
-    refreshToken: "refreshToken_mock_778923",
-    user
-  });
+app.post("/api/auth/login", (_req, res) => {
+  // Never issue fake JWTs or accept passwords without verification.
+  return res.status(501).json({ error: "Authentication is not configured. Connect a real identity provider before enabling sign-in." });
 });
 
 app.post("/api/auth/logout", (req, res) => {
