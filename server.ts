@@ -340,25 +340,9 @@ let mockCandidates = [
 // --- REST API ENDPOINTS ---
 
 // Auth
-app.post("/api/auth/register", (req, res) => {
-  const { fullName, email, phone, password, organizationId } = req.body;
-  if (!email || !password || !fullName) {
-    return res.status(400).json({ statusCode: 400, message: "Missing required registration fields", error: "Bad Request" });
-  }
-  const newUser = {
-    id: "user-" + (mockUsers.length + 1),
-    fullName,
-    email,
-    phone,
-    role: "STUDENT",
-    organizationId: organizationId || "org-1"
-  };
-  mockUsers.push(newUser);
-  res.status(201).json({
-    message: "User registered successfully with bcrypt password hashing (salt=12)",
-    user: newUser,
-    accessToken: "eyJhGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.mockAccessTokenTokenJwt"
-  });
+app.post("/api/auth/register", (_req, res) => {
+  // The prior demo created accounts without storing or verifying a password.
+  return res.status(501).json({ error: "Registration requires a configured identity provider and encrypted credential storage." });
 });
 
 app.post("/api/auth/login", (_req, res) => {
