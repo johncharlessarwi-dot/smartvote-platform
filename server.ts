@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
+import { parseAiChatInput } from "./src/ai-input";
 
 const app = express();
 const PORT = 3000;
@@ -493,7 +494,9 @@ app.get("/api/results/live/:electionId", (req, res) => {
 // --- MODULE 8: AI ELECTION ASSISTANT & RAG CHAT ---
 app.post("/api/ai/chat", async (req, res) => {
   try {
-    const { prompt, userRole, organizationName } = req.body;
+    const input = parseAiChatInput(req.body);
+    if (!input) return res.status(400).json({ error: "Invalid AI chat request" });
+    const { prompt, userRole, organizationName } = input;
     const client = getAIClient();
 
     const systemPrompt = `You are SmartVote AI Assistant, an expert RAG-powered election assistant for ${organizationName || 'SmartVote Enterprise'}. 
