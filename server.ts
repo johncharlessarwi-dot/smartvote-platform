@@ -364,8 +364,8 @@ app.get("/api/users/profile", (_req, res) => {
   return res.status(501).json({ error: "Private user profiles require verified account authentication." });
 });
 
-app.patch("/api/users/profile", (req, res) => {
-  res.json({ message: "User profile updated successfully", updated: req.body });
+app.patch("/api/users/profile", (_req, res) => {
+  return res.status(501).json({ error: "Profile updates require authenticated ownership and persistent storage." });
 });
 
 // Organizations
