@@ -385,10 +385,8 @@ app.get("/api/clubs", (req, res) => {
   res.json(mockClubs);
 });
 
-app.post("/api/clubs", (req, res) => {
-  const newClub = { id: "club-" + (mockClubs.length + 1), ...req.body, status: "ACTIVE" };
-  mockClubs.push(newClub);
-  res.status(201).json(newClub);
+app.post("/api/clubs", (_req, res) => {
+  return res.status(501).json({ error: "Club registration requires authenticated organization administrators." });
 });
 
 app.patch("/api/clubs/:id", (req, res) => {
