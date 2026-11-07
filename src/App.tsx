@@ -403,7 +403,7 @@ export default function App() {
       alert("Please select a candidate before casting your ballot.");
       return;
     }
-    const receiptCode = "SV-REC-" + Math.random().toString(36).substring(2, 10).toUpperCase();
+    const receiptCode = "SV-DEMO-" + crypto.randomUUID().slice(0, 8).toUpperCase();
     setVoterReceipt(receiptCode);
     setVoterVoted(true);
     setCandidatesManagement(candidatesManagement.map(c => {
