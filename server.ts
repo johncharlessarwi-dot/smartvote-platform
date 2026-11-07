@@ -667,7 +667,9 @@ app.get("/api/notifications/logs", (_req, res) => {
 
 app.post("/api/ai-architect", async (req, res) => {
   try {
-    const { prompt } = req.body;
+    const input = parseAiChatInput(req.body);
+    if (!input) return res.status(400).json({ error: 'Invalid AI architecture question.' });
+    const { prompt } = input;
     if (process.env.GEMINI_API_KEY) return res.status(501).json({ error: 'AI architecture calls require authenticated access and spend limits.' });
     const client = getAIClient();
     
