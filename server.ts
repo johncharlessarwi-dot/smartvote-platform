@@ -755,26 +755,8 @@ app.post("/api/voters/register", (req, res) => {
   });
 });
 
-app.post("/api/voters/login", (req, res) => {
-  const { registrationNumber, password } = req.body;
-  const voter = mockVoters.find(v => v.registrationNumber === registrationNumber || v.email === registrationNumber);
-  
-  if (!voter) {
-    return res.status(401).json({ success: false, message: "Invalid registration number or password." });
-  }
-
-  if (voter.approvalStatus !== "Approved") {
-    return res.status(403).json({ success: false, message: "Your voter account is currently pending administrator verification or has been suspended." });
-  }
-
-  voter.lastLogin = new Date().toISOString().replace('T', ' ').substring(0, 16);
-
-  res.json({
-    success: true,
-    message: `Welcome back, ${voter.fullName}!`,
-    voter,
-    token: "jwt_token_secure_" + voter.id
-  });
+app.post("/api/voters/login", (_req, res) => {
+  return res.status(501).json({ error: "Voter sign-in requires verified passwords, identity and authenticated sessions." });
 });
 
 app.get("/api/voters/profile", (req, res) => {
