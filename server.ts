@@ -711,10 +711,8 @@ app.post("/api/voters/login", (_req, res) => {
   return res.status(501).json({ error: "Voter sign-in requires verified passwords, identity and authenticated sessions." });
 });
 
-app.get("/api/voters/profile", (req, res) => {
-  // Default to first voter or query
-  const voter = mockVoters[0];
-  res.json(voter);
+app.get("/api/voters/profile", (_req, res) => {
+  return res.status(501).json({ error: "Voter profiles are private until authenticated account ownership is enforced." });
 });
 
 app.patch("/api/voters/profile", (req, res) => {
