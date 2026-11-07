@@ -377,11 +377,10 @@ app.post("/api/organizations", (_req, res) => {
   return res.status(501).json({ error: "Organization creation requires authenticated platform administration and tenant persistence." });
 });
 
-app.patch("/api/organizations/:id", (req, res) => {
-  res.json({ message: "Organization updated", id: req.params.id, updates: req.body });
+app.patch("/api/organizations/:id", (_req, res) => {
+  return res.status(501).json({ error: "Organization settings require authorized tenant administration." });
 });
 
-// Clubs
 app.get("/api/clubs", (req, res) => {
   res.json(mockClubs);
 });
