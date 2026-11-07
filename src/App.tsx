@@ -151,7 +151,7 @@ export default function App() {
       manifesto: "Advocating for 24/7 campus Wi-Fi, transparent student budgeting, annual hackathons, and upgraded computer laboratories.",
       slogan: "Innovation, Transparency & Student Welfare",
       campaignColor: "#2563eb",
-      approvalStatus: "Approved",
+      approvalStatus: "Pending",
       candidateStatus: "Active",
       votesCount: 560,
       hasReceivedVotes: true,
