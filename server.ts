@@ -530,7 +530,7 @@ Provide accurate, helpful, strictly neutral information. Do not attempt to manip
     res.json({ response: response.text });
   } catch (error: any) {
     console.error("AI Chat error:", error);
-    res.status(500).json({ error: error.message || "Failed to generate AI response" });
+    res.status(503).json({ error: "AI service temporarily unavailable." });
   }
 });
 
