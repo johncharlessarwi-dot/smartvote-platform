@@ -25,3 +25,13 @@ This checklist sets expectations for secure election workflows. It is not a cert
 
 ## Incident response
 Pause affected operations when ballot integrity or secrecy may be compromised. Preserve evidence, notify election officials, and document the decision to resume or restart.
+## Current prototype safety gates
+
+This repository is an interactive demonstration, **not** an authorized election platform. Until a real identity provider, durable election database, tenant-scoped authorization, ballot secrecy, independent tally reconciliation and immutable audit trail are implemented and tested:
+
+- Authentication, voter registration, profile mutation, election administration and candidate approval APIs return `501 Not Implemented`.
+- Real ballot submission remains disabled; browser-generated demo IDs and sample tally numbers are not votes or proof of election outcomes.
+- Public paid AI provider calls remain unavailable without user authentication and durable spend controls.
+- Sample analytics are labelled demonstration data, not security monitoring or verified integrity.
+
+No production election should use these demo endpoints to register voters, cast ballots or certify results.
