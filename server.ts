@@ -553,8 +553,9 @@ app.post("/api/saas/whitelabel", (_req, res) => {
   return res.status(501).json({ error: "Branding changes require authenticated tenant administration." });
 });
 
-app.get("/api/analytics/fraud", (req, res) => {
+app.get("/api/analytics/fraud", (_req, res) => {
   res.json({
+    dataMode: "DEMO_ONLY_NO_SECURITY_MONITORING",
     fraudLogs,
     systemIntegrity: null,
     activeShields: []
