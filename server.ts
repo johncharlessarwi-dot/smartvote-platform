@@ -556,7 +556,7 @@ app.post("/api/saas/whitelabel", (_req, res) => {
 app.get("/api/analytics/fraud", (req, res) => {
   res.json({
     fraudLogs,
-    systemIntegrity: "100%",
+    systemIntegrity: null,
     activeShields: ["Rate Limiter (Redis)", "IP Anomaly Detector", "Duplicate Vote Prevention Engine"]
   });
 });
