@@ -355,8 +355,8 @@ app.post("/api/auth/logout", (_req, res) => {
   return res.status(501).json({ error: "Session revocation requires an authenticated session provider." });
 });
 
-app.post("/api/auth/refresh-token", (req, res) => {
-  res.json({ accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.refreshedAccessTokenJwt" });
+app.post("/api/auth/refresh-token", (_req, res) => {
+  return res.status(501).json({ error: "Token refresh is unavailable until authenticated sessions are implemented." });
 });
 
 // Users
