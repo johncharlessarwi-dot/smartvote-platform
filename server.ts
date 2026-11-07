@@ -406,11 +406,10 @@ app.post("/api/elections", (_req, res) => {
   return res.status(501).json({ error: "Election creation requires verified election officers and persistent records." });
 });
 
-app.patch("/api/elections/:id", (req, res) => {
-  res.json({ message: "Election updated", id: req.params.id, updates: req.body });
+app.patch("/api/elections/:id", (_req, res) => {
+  return res.status(501).json({ error: "Election lifecycle updates require authorized election officials." });
 });
 
-// Candidates
 app.get("/api/candidates", (req, res) => {
   res.json(mockCandidates);
 });
