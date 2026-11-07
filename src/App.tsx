@@ -394,7 +394,7 @@ export default function App() {
     }
     setVoterRegistered(true);
     setAuditLogsList([{ id: "log-" + (auditLogsList.length + 1), userId: voterRegNumber, action: "VOTER_REGISTERED", description: `Voter ${voterFullName} (${voterRegNumber}) registered`, ip: "127.0.0.1", timestamp: new Date().toISOString().replace('T', ' ').substring(0, 16) }, ...auditLogsList]);
-    alert(`Voter ${voterFullName} successfully registered and verified for the active ballot session.`);
+    alert(`Demo registration saved in this browser for ${voterFullName}. Identity verification and real voting access are NOT active.`);
   };
 
   const handleCastVoterBallot = (e: React.FormEvent) => {
