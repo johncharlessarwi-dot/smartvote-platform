@@ -703,56 +703,8 @@ app.get("/api/admin/voters", (req, res) => {
   });
 });
 
-app.post("/api/voters/register", (req, res) => {
-  const { fullName, registrationNumber, email, phone, organization, club, department, course, yearOfStudy, gender, dateOfBirth, password } = req.body;
-  
-  if (!fullName || !registrationNumber || !email || !password) {
-    return res.status(400).json({ success: false, message: "Full Name, Registration Number, Email, and Password are required." });
-  }
-
-  // Check unique registration number or email
-  const existing = mockVoters.find(v => v.registrationNumber === registrationNumber || v.email === email);
-  if (existing) {
-    return res.status(400).json({ success: false, message: "A voter with this Registration Number or Email is already registered in the system." });
-  }
-
-  const newVoter = {
-    id: "voter-" + (mockVoters.length + 1),
-    fullName,
-    registrationNumber,
-    email,
-    phone: phone || "+255 700 000 000",
-    organization: organization || "MWECAU Student Union",
-    club: club || "General Student Body",
-    department: department || "General Studies",
-    course: course || "Degree Program",
-    yearOfStudy: yearOfStudy || "Year 1",
-    gender: gender || "Not Specified",
-    dateOfBirth: dateOfBirth || "2000-01-01",
-    approvalStatus: "Pending Verification",
-    votingStatus: "Not Voted",
-    role: "VOTER",
-    registrationDate: new Date().toISOString().replace('T', ' ').substring(0, 16),
-    lastLogin: "Never",
-    photoUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"
-  };
-
-  mockVoters.push(newVoter);
-
-  // Send notification log
-  notificationLogs.unshift({
-    id: "notif-" + (notificationLogs.length + 1),
-    recipient: email,
-    type: "EMAIL_REGISTRATION_SUBMITTED",
-    message: `Dear ${fullName}, your voter registration for ${organization || 'SmartVote'} has been successfully submitted and is awaiting administrator verification.`,
-    timestamp: new Date().toISOString().replace('T', ' ').substring(0, 16)
-  });
-
-  res.status(201).json({
-    success: true,
-    message: "Registration submitted successfully! Your account is pending administrator approval.",
-    voter: newVoter
-  });
+app.post("/api/voters/register", (_req, res) => {
+  return res.status(501).json({ error: "Voter enrollment is unavailable until identity verification and secure credential storage are configured." });
 });
 
 app.post("/api/voters/login", (_req, res) => {
