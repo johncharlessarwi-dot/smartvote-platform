@@ -398,8 +398,9 @@ app.get("/api/elections", (req, res) => {
 });
 
 app.get("/api/elections/:id", (req, res) => {
-  const el = mockElections.find(e => e.id === req.params.id) || mockElections[0];
-  res.json(el);
+  const el = mockElections.find(e => e.id === req.params.id);
+  if (!el) return res.status(404).json({ error: "Demo election not found." });
+  res.json({ dataMode: "DEMO_ONLY", election: el });
 });
 
 app.post("/api/elections", (_req, res) => {
