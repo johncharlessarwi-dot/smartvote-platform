@@ -547,16 +547,8 @@ app.get("/api/saas/whitelabel", (req, res) => {
   res.json(whiteLabelConfig);
 });
 
-app.post("/api/saas/whitelabel", (req, res) => {
-  const { systemName, logoText, primaryColor, domain, supportEmail } = req.body;
-  whiteLabelConfig = {
-    systemName: systemName || whiteLabelConfig.systemName,
-    logoText: logoText || whiteLabelConfig.logoText,
-    primaryColor: primaryColor || whiteLabelConfig.primaryColor,
-    domain: domain || whiteLabelConfig.domain,
-    supportEmail: supportEmail || whiteLabelConfig.supportEmail
-  };
-  res.json({ success: true, message: "White-label configuration updated successfully across tenant domains", whiteLabelConfig });
+app.post("/api/saas/whitelabel", (_req, res) => {
+  return res.status(501).json({ error: "Branding changes require authenticated tenant administration." });
 });
 
 app.get("/api/analytics/fraud", (req, res) => {
