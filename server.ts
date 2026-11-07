@@ -373,11 +373,8 @@ app.get("/api/organizations", (req, res) => {
   res.json(mockOrganizations);
 });
 
-app.post("/api/organizations", (req, res) => {
-  const { name, contactEmail, description } = req.body;
-  const newOrg = { id: "org-" + (mockOrganizations.length + 1), name, contactEmail, description, status: "ACTIVE", primaryColor: "#141414", createdAt: new Date().toISOString() };
-  mockOrganizations.push(newOrg);
-  res.status(201).json(newOrg);
+app.post("/api/organizations", (_req, res) => {
+  return res.status(501).json({ error: "Organization creation requires authenticated platform administration and tenant persistence." });
 });
 
 app.patch("/api/organizations/:id", (req, res) => {
