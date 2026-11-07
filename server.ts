@@ -435,6 +435,7 @@ app.get("/api/voting/status", (_req, res) => {
 // --- MODULE 6: REAL-TIME LIVE RESULTS SYSTEM ---
 app.get("/api/results/live/:electionId", (req, res) => {
   const { electionId } = req.params;
+  if (electionId !== 'el-1') return res.status(404).json({ error: 'Demo election results not found.' });
   const totalVotes = 876;
   const totalRegistered = 1250;
   const participation = ((totalVotes / totalRegistered) * 100).toFixed(2);
