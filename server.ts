@@ -360,8 +360,8 @@ app.post("/api/auth/refresh-token", (_req, res) => {
 });
 
 // Users
-app.get("/api/users/profile", (req, res) => {
-  res.json(mockUsers[0]);
+app.get("/api/users/profile", (_req, res) => {
+  return res.status(501).json({ error: "Private user profiles require verified account authentication." });
 });
 
 app.patch("/api/users/profile", (req, res) => {
