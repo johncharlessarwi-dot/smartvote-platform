@@ -715,15 +715,8 @@ app.get("/api/voters/profile", (_req, res) => {
   return res.status(501).json({ error: "Voter profiles are private until authenticated account ownership is enforced." });
 });
 
-app.patch("/api/voters/profile", (req, res) => {
-  const { phone, club, course, yearOfStudy } = req.body;
-  const voter = mockVoters[0];
-  if (phone) voter.phone = phone;
-  if (club) voter.club = club;
-  if (course) voter.course = course;
-  if (yearOfStudy) voter.yearOfStudy = yearOfStudy;
-
-  res.json({ success: true, message: "Profile successfully updated", voter });
+app.patch("/api/voters/profile", (_req, res) => {
+  return res.status(501).json({ error: "Voter profile changes require authenticated ownership and audited updates." });
 });
 
 app.post("/api/admin/voters/approve", (req, res) => {
