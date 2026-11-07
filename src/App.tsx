@@ -412,7 +412,7 @@ export default function App() {
       }
       return c;
     }));
-    setAuditLogsList([{ id: "log-" + (auditLogsList.length + 1), userId: voterRegNumber || "Voter", action: "CAST_VOTE", description: `Cast ballot with cryptoreceipt ${receiptCode}`, ip: "127.0.0.1", timestamp: new Date().toISOString().replace('T', ' ').substring(0, 16) }, ...auditLogsList]);
+    setAuditLogsList([{ id: "log-" + (auditLogsList.length + 1), userId: voterRegNumber || "Voter", action: "CAST_VOTE", description: `Simulated a local browser ballot with demo ID ${receiptCode}`, ip: "127.0.0.1", timestamp: new Date().toISOString().replace('T', ' ').substring(0, 16) }, ...auditLogsList]);
     alert(`Demo ballot recorded in this browser only. This is NOT a real vote or cryptographic receipt. Demo ID: ${receiptCode}`);
   };
 
