@@ -465,7 +465,7 @@ app.get("/api/results/live/:electionId", (req, res) => {
       }
     ],
     securityStatus: {
-      anomalyDetected: false,
+      anomalyDetected: null,
       activeSecurityAlerts: 0,
       concurrencyRate: "Not measured in prototype"
     }
