@@ -697,23 +697,8 @@ app.patch("/api/voters/profile", (_req, res) => {
   return res.status(501).json({ error: "Voter profile changes require authenticated ownership and audited updates." });
 });
 
-app.post("/api/admin/voters/approve", (req, res) => {
-  const { voterId } = req.body;
-  const voter = mockVoters.find(v => v.id === voterId);
-  if (!voter) {
-    return res.status(404).json({ success: false, message: "Voter not found" });
-  }
-  voter.approvalStatus = "Approved";
-
-  notificationLogs.unshift({
-    id: "notif-" + (notificationLogs.length + 1),
-    recipient: voter.email,
-    type: "EMAIL_REGISTRATION_APPROVED",
-    message: `Congratulations ${voter.fullName}! Your voter registration has been approved. You can now participate in active elections.`,
-    timestamp: new Date().toISOString().replace('T', ' ').substring(0, 16)
-  });
-
-  res.json({ success: true, message: `Voter ${voter.fullName} approved successfully`, voter });
+app.post("/api/admin/voters/approve", (_req, res) => {
+  return res.status(501).json({ error: "Voter approval requires authenticated administrators and verifiable eligibility evidence." });
 });
 
 app.post("/api/admin/voters/reject", (req, res) => {
