@@ -705,8 +705,8 @@ app.post("/api/admin/voters/reject", (_req, res) => {
   return res.status(501).json({ error: "Voter rejection requires authenticated administrators and immutable review history." });
 });
 
-app.get("/api/notifications/logs", (req, res) => {
-  res.json(notificationLogs);
+app.get("/api/notifications/logs", (_req, res) => {
+  return res.status(501).json({ error: "Notification audit history requires administrator authorization." });
 });
 
 
