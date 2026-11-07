@@ -539,28 +539,8 @@ app.get("/api/saas/subscription", (req, res) => {
   res.json(currentSubscription);
 });
 
-app.post("/api/saas/subscription", (req, res) => {
-  const { plan, paymentMethod } = req.body;
-  if (!plan) {
-    return res.status(400).json({ message: "Plan is required" });
-  }
-  let price = "$49/month";
-  if (plan === "PREMIUM") price = "$199/month";
-  if (plan === "ENTERPRISE") price = "$499/month";
-
-  currentSubscription = {
-    plan,
-    price,
-    status: "ACTIVE",
-    renewalDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    features: plan === "BASIC" ? ["1 Organization", "3 Elections", "Basic Analytics"] : plan === "PREMIUM" ? ["Unlimited Elections", "AI Assistant", "Advanced Analytics", "Custom Branding"] : ["Unlimited Users", "Dedicated Support", "Custom Deployment", "SLA 99.99%"]
-  };
-
-  res.json({
-    success: true,
-    message: `Successfully upgraded subscription to ${plan} via ${paymentMethod || 'Stripe/Mobile Money'}`,
-    subscription: currentSubscription
-  });
+app.post("/api/saas/subscription", (_req, res) => {
+  return res.status(501).json({ error: "Plan changes require authenticated billing and payment reconciliation." });
 });
 
 app.get("/api/saas/whitelabel", (req, res) => {
