@@ -478,6 +478,7 @@ app.post("/api/ai/chat", async (req, res) => {
     const input = parseAiChatInput(req.body);
     if (!input) return res.status(400).json({ error: "Invalid AI chat request" });
     const { prompt, userRole, organizationName } = input;
+    if (process.env.GEMINI_API_KEY) return res.status(501).json({ error: "AI provider calls require authenticated users and durable rate limits." });
     const client = getAIClient();
 
     const systemPrompt = `You are SmartVote AI Assistant, an expert RAG-powered election assistant for ${organizationName || 'SmartVote Enterprise'}. 
