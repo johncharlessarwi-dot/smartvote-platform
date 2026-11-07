@@ -351,8 +351,8 @@ app.post("/api/auth/login", (_req, res) => {
   return res.status(501).json({ error: "Authentication is not configured. Connect a real identity provider before enabling sign-in." });
 });
 
-app.post("/api/auth/logout", (req, res) => {
-  res.json({ message: "Successfully logged out and session revoked" });
+app.post("/api/auth/logout", (_req, res) => {
+  return res.status(501).json({ error: "Session revocation requires an authenticated session provider." });
 });
 
 app.post("/api/auth/refresh-token", (req, res) => {
