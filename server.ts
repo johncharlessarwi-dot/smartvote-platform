@@ -491,7 +491,7 @@ Provide accurate, helpful, strictly neutral information. Do not attempt to manip
       let reply = "Hello! I am your SmartVote AI Assistant. How can I help you with today's election?";
       const lower = (prompt || "").toLowerCase();
       if (lower.includes("vote") || lower.includes("how")) {
-        reply = "To vote: Log into your account, navigate to the Voter Portal, review available candidates for each position (such as President), select your preferred candidate, and confirm your vote. Your ballot is secured with AES-256 encryption and a unique confirmation receipt.";
+        reply = "To vote: Log into your account, navigate to the Voter Portal, review available candidates for each position (such as President), select your preferred candidate, and confirm your vote. This is a demonstration only; real ballot submission and cryptographic receipts are not enabled.";
       } else if (lower.includes("john") || lower.includes("sarwi")) {
         reply = "John Charles Sarwi is running for Club President (BSc Computer Science, 1st Year). His manifesto focuses on improving campus coding culture, 24/7 Wi-Fi access, and organizing annual student hackathons.";
       } else if (lower.includes("peter") || lower.includes("joseph")) {
