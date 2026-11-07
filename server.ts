@@ -414,10 +414,8 @@ app.get("/api/candidates", (req, res) => {
   res.json(mockCandidates);
 });
 
-app.post("/api/candidates/apply", (req, res) => {
-  const newCand = { id: "cand-" + (mockCandidates.length + 1), ...req.body, approvalStatus: "PENDING" };
-  mockCandidates.push(newCand);
-  res.status(201).json({ message: "Candidate application submitted for review", candidate: newCand });
+app.post("/api/candidates/apply", (_req, res) => {
+  return res.status(501).json({ error: "Candidate nominations require verified identity and eligibility." });
 });
 
 app.patch("/api/candidates/:id/approve", (req, res) => {
