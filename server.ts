@@ -402,10 +402,8 @@ app.get("/api/elections/:id", (req, res) => {
   res.json(el);
 });
 
-app.post("/api/elections", (req, res) => {
-  const newElection = { id: "el-" + (mockElections.length + 1), ...req.body, status: "DRAFT" };
-  mockElections.push(newElection);
-  res.status(201).json(newElection);
+app.post("/api/elections", (_req, res) => {
+  return res.status(501).json({ error: "Election creation requires verified election officers and persistent records." });
 });
 
 app.patch("/api/elections/:id", (req, res) => {
