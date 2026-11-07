@@ -7,7 +7,7 @@ import { parseAiChatInput } from "./src/ai-input";
 const app = express();
 const PORT = 3000;
 
-app.use(express.json());
+app.use(express.json({ limit: '32kb', strict: true }));
 
 // Initialize Google Gen AI if key exists
 let aiClient: GoogleGenAI | null = null;
