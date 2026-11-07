@@ -443,7 +443,7 @@ export default function App() {
       yearOfStudy: 'Year 3', position: 'President', club: 'Computing & IT Society',
       biography: '', manifesto: '', slogan: ''
     });
-    alert(`Candidate ${newCandForm.fullName} successfully added and approved!`);
+    alert(`Candidate ${newCandForm.fullName} added to the demo pending review list. No official approval was granted.`);
   };
 
   // Remove Candidate with votes check
