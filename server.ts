@@ -418,18 +418,9 @@ app.post("/api/candidates/apply", (_req, res) => {
   return res.status(501).json({ error: "Candidate nominations require verified identity and eligibility." });
 });
 
-app.patch("/api/candidates/:id/approve", (req, res) => {
-  res.json({ message: "Candidate approved successfully", candidateId: req.params.id, approvalStatus: "APPROVED" });
+app.patch("/api/candidates/:id/approve", (_req, res) => {
+  return res.status(501).json({ error: "Candidate approval requires an authorized review decision and audit record." });
 });
-
-// --- MODULE 5: SECURE VOTING ENGINE ---
-let mockVotes: any[] = [
-  { id: "v-1", electionId: "el-1", positionId: "pos-1", candidateId: "cand-1", voterId: "user-2", encryptedVote: "aes256:iv:cipher_payload_abc99812", createdAt: new Date().toISOString() }
-];
-
-let mockAuditLogs: any[] = [
-  { id: "log-1", userId: "user-2", action: "CAST_VOTE", description: "Successfully cast encrypted ballot in election el-1", ipAddress: "192.168.1.50", createdAt: new Date().toISOString() }
-];
 
 app.post("/api/voting/cast-vote", (_req, res) => {
   // Prototype-only: refuse to claim ballots are encrypted or durably stored.
