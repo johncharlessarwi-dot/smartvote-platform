@@ -677,30 +677,8 @@ let notificationLogs: Array<{ id: string; recipient: string; type: string; messa
   { id: "notif-2", recipient: "grace.mallya@mwecau.ac.tz", type: "EMAIL_REGISTRATION_APPROVED", message: "Your voter account has been verified and approved by the administrator.", timestamp: "2026-08-01 09:00" }
 ];
 
-app.get("/api/admin/voters", (req, res) => {
-  const { search, organization, club, approvalStatus } = req.query;
-  let results = [...mockVoters];
-
-  if (search) {
-    const q = (search as string).toLowerCase();
-    results = results.filter(v => v.fullName.toLowerCase().includes(q) || v.registrationNumber.toLowerCase().includes(q) || v.email.toLowerCase().includes(q));
-  }
-  if (organization && organization !== "All") {
-    results = results.filter(v => v.organization === organization);
-  }
-  if (club && club !== "All") {
-    results = results.filter(v => v.club === club);
-  }
-  if (approvalStatus && approvalStatus !== "All") {
-    results = results.filter(v => v.approvalStatus === approvalStatus);
-  }
-
-  res.json({
-    voters: results,
-    totalCount: mockVoters.length,
-    filteredCount: results.length,
-    approvalPendingCount: mockVoters.filter(v => v.approvalStatus === "Pending Verification").length
-  });
+app.get("/api/admin/voters", (_req, res) => {
+  return res.status(501).json({ error: "Voter registry access requires administrator authentication and tenant authorization." });
 });
 
 app.post("/api/voters/register", (_req, res) => {
