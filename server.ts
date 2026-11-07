@@ -557,7 +557,7 @@ app.get("/api/analytics/fraud", (req, res) => {
   res.json({
     fraudLogs,
     systemIntegrity: null,
-    activeShields: ["Rate Limiter (Redis)", "IP Anomaly Detector", "Duplicate Vote Prevention Engine"]
+    activeShields: []
   });
 });
 
