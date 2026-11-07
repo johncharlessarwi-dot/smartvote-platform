@@ -389,11 +389,10 @@ app.post("/api/clubs", (_req, res) => {
   return res.status(501).json({ error: "Club registration requires authenticated organization administrators." });
 });
 
-app.patch("/api/clubs/:id", (req, res) => {
-  res.json({ message: "Club updated", id: req.params.id, updates: req.body });
+app.patch("/api/clubs/:id", (_req, res) => {
+  return res.status(501).json({ error: "Club updates require tenant ownership and audited authorization." });
 });
 
-// Elections
 app.get("/api/elections", (req, res) => {
   res.json(mockElections);
 });
