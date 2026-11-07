@@ -497,7 +497,7 @@ Provide accurate, helpful, strictly neutral information. Do not attempt to manip
       } else if (lower.includes("peter") || lower.includes("joseph")) {
         reply = "Peter Joseph is running for Club President (BSc Information Technology). His manifesto focuses on modern computer labs, student welfare grants, and career mentorship programs.";
       } else if (lower.includes("stats") || lower.includes("turnout") || lower.includes("voted")) {
-        reply = "Current Election Statistics: 876 students have voted out of 1,250 registered voters, representing a 70.08% participation rate. Voting is active and secured via Redis caching and PostgreSQL.";
+        reply = "Demo statistics only: 876 sample votes out of 1,250 fictional registrations (70.08%). These are not verified election results; live voting and Redis protections are not active.";
       } else if (lower.includes("admin") || lower.includes("create")) {
         reply = "As an Administrator, you can create elections, manage club positions, approve candidate nominations, monitor live socket tallying, and review security anomaly alerts.";
       }
