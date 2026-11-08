@@ -8,3 +8,5 @@ test('rejects invalid candidate vote totals',()=>{assert.deepEqual(rankCandidate
 test('duplicate candidate identities fail closed',()=>{assert.deepEqual(rankCandidates([{id:'a',votes:1},{id:'a',votes:2}]),[]);});
 
 test('rejects padded candidate identity',()=>{assert.deepEqual(rankCandidates([{id:' a ',votes:4}]),[]);});
+
+test('oversized candidate set fails closed',()=>{assert.deepEqual(rankCandidates(Array.from({length:10001},(_,i)=>({id:'c'+i,votes:0}))),[]);});
