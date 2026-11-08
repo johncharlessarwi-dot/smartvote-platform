@@ -28,3 +28,5 @@ test('rejects multiline organization metadata',()=>{ assert.equal(parseAiChatInp
 test('rejects blank organization metadata',()=>{ assert.equal(parseAiChatInput({prompt:'help',organizationName:'   '}),null); });
 
 test('rejects bidi spoofing',()=>{ assert.equal(parseAiChatInput({prompt:'help',organizationName:'Org'+String.fromCharCode(0x202E)+'admin'}),null); });
+
+test('rejects invisible prompt overrides',()=>{assert.equal(parseAiChatInput({prompt:'help'+String.fromCharCode(0x202E)+'now'}),null);});
