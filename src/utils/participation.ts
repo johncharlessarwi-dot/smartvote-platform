@@ -1,1 +1,1 @@
-export function participationPercent(voted:number,eligible:number):number { if(!Number.isSafeInteger(voted)||!Number.isSafeInteger(eligible)||eligible<=0||voted<0)return 0; return Math.min(100,Math.round(voted/eligible*10000)/100); }
+export function participationPercent(voted:number,eligible:number):number { if(!Number.isSafeInteger(voted)||!Number.isSafeInteger(eligible)||eligible<=0||voted<0||voted>eligible)return 0; return Math.min(100,Math.round(voted/eligible*10000)/100); }

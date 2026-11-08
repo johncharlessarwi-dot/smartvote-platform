@@ -9,9 +9,13 @@ export function parseAiChatInput(body: unknown): AiChatInput | null {
   const record = body as Record<string, unknown>;
   if (typeof record.prompt !== "string") return null;
   const prompt = record.prompt.trim();
-  if (!prompt || prompt.length > 2_000) return null;
+  if (!prompt || prompt.length > 2_000 || /[\u200B-\u200F\u202A-\u202E\u2066-\u2069]/.test(prompt)) return null;
   if (record.userRole !== undefined && (typeof record.userRole !== "string" || record.userRole.length > 64)) return null;
   if (record.organizationName !== undefined && (typeof record.organizationName !== "string" || record.organizationName.length > 120)) return null;
+  if (record.userRole !== undefined && !['STUDENT', 'CANDIDATE', 'ORGANIZATION_ADMIN', 'SUPER_ADMIN'].includes(record.userRole as string)) return null;
+  if (typeof record.organizationName === 'string' && /[\x00-\x1F\x7F]/.test(record.organizationName)) return null;
+  if (typeof record.organizationName === 'string' && !record.organizationName.trim()) return null;
+  if (typeof record.organizationName === 'string' && /[\u200B-\u200F\u202A-\u202E\u2066-\u2069]/.test(record.organizationName)) return null;
   return {
     prompt,
     userRole: typeof record.userRole === "string" ? record.userRole.trim() : "STUDENT",
