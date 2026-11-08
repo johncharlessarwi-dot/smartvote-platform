@@ -10,3 +10,5 @@ test('tenant scope rejects malformed organization IDs at runtime',()=>{
  }
  assert.equal(sameOrganization('org_1','org_1'),true);
 });
+
+test('organization control characters fail closed',()=>{assert.equal(sameOrganization('org\n1','org\n1'),false);});
