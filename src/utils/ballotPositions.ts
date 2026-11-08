@@ -1,1 +1,1 @@
-export function uniqueBallotPositions(items: {positionId:string}[]): boolean { const positions=items.map(x=>x.positionId); return positions.every(Boolean)&&new Set(positions).size===positions.length; }
+export function uniqueBallotPositions(items: {positionId:string}[]): boolean { if(!Array.isArray(items))return false; const positions=items.map(x=>x?.positionId); return positions.every(x=>typeof x==='string'&&x.trim()===x&&x.length>0&&x.length<=128)&&new Set(positions).size===positions.length; }
