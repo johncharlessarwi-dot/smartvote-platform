@@ -1,1 +1,1 @@
-export function isElectionOpen(start: string, end: string, now: string): boolean { const s=Date.parse(start),e=Date.parse(end),n=Date.parse(now); return [s,e,n].every(Number.isFinite)&&s<e&&n>=s&&n<=e; }
+export function isElectionOpen(start: string, end: string, now: string): boolean { if(typeof start!=='string'||typeof end!=='string'||typeof now!=='string')return false; const s=Date.parse(start),e=Date.parse(end),n=Date.parse(now); return [s,e,n].every(Number.isFinite)&&s<e&&n>=s&&n<=e; }
