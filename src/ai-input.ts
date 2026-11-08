@@ -14,6 +14,7 @@ export function parseAiChatInput(body: unknown): AiChatInput | null {
   if (record.organizationName !== undefined && (typeof record.organizationName !== "string" || record.organizationName.length > 120)) return null;
   if (record.userRole !== undefined && !['STUDENT', 'CANDIDATE', 'ORGANIZATION_ADMIN', 'SUPER_ADMIN'].includes(record.userRole as string)) return null;
   if (typeof record.organizationName === 'string' && /[\x00-\x1F\x7F]/.test(record.organizationName)) return null;
+  if (typeof record.organizationName === 'string' && !record.organizationName.trim()) return null;
   return {
     prompt,
     userRole: typeof record.userRole === "string" ? record.userRole.trim() : "STUDENT",
