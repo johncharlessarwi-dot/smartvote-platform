@@ -1,1 +1,1 @@
-export function rankCandidates<T extends {id:string;votes:number}>(items:T[]):T[] { return [...items].sort((a,b)=>b.votes-a.votes||a.id.localeCompare(b.id)); }
+export function rankCandidates<T extends {id:string;votes:number}>(items:T[]):T[] { if(!Array.isArray(items)||items.some(x=>!x||typeof x.id!=='string'||!x.id||!Number.isSafeInteger(x.votes)||x.votes<0))return []; return [...items].sort((a,b)=>b.votes-a.votes||a.id.localeCompare(b.id)); }
