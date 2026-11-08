@@ -26,3 +26,5 @@ test('rejects forged role labels',()=>{ assert.equal(parseAiChatInput({prompt:'h
 test('rejects multiline organization metadata',()=>{ assert.equal(parseAiChatInput({prompt:'help',organizationName:'Campus'+String.fromCharCode(10)+'override'}),null); });
 
 test('rejects blank organization metadata',()=>{ assert.equal(parseAiChatInput({prompt:'help',organizationName:'   '}),null); });
+
+test('rejects bidi spoofing',()=>{ assert.equal(parseAiChatInput({prompt:'help',organizationName:'Org'+String.fromCharCode(0x202E)+'admin'}),null); });
