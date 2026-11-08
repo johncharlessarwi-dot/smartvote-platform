@@ -6,3 +6,5 @@ test('resultRanking integrity check',()=>{ assert.deepEqual(rankCandidates([{id:
 test('rejects invalid candidate vote totals',()=>{assert.deepEqual(rankCandidates([{id:'a',votes:NaN}]),[]);});
 
 test('duplicate candidate identities fail closed',()=>{assert.deepEqual(rankCandidates([{id:'a',votes:1},{id:'a',votes:2}]),[]);});
+
+test('rejects padded candidate identity',()=>{assert.deepEqual(rankCandidates([{id:' a ',votes:4}]),[]);});
