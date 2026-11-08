@@ -1,1 +1,1 @@
-export function isEligibleCandidate(status:string,positionId:string,electionPositionIds:string[]):boolean { return status==='APPROVED'&&!!positionId&&electionPositionIds.includes(positionId); }
+export function isEligibleCandidate(status:string,positionId:string,electionPositionIds:string[]):boolean { return status==='APPROVED'&&typeof positionId==='string'&&positionId.trim()===positionId&&positionId.length>0&&Array.isArray(electionPositionIds)&&electionPositionIds.includes(positionId); }
