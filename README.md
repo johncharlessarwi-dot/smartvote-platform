@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="https://github.com/johncharlessarwi-dot"><img src="https://avatars.githubusercontent.com/u/263143496?v=4" width="120" height="120" alt="John Charles Sarwi" /></a>
+</p>
+
 <div align="center">
   <img src="assets/readme/project-motion.svg" width="100%" alt="SMARTVOTE animated overview banner" />
 </div>
