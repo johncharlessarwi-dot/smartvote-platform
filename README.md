@@ -1,5 +1,7 @@
 <p align="center">
   <a href="https://github.com/johncharlessarwi-dot"><img src="https://avatars.githubusercontent.com/u/263143496?v=4" width="120" height="120" alt="John Charles Sarwi" /></a>
+  <br />
+  <a href="https://wa.me/255698170989">Chat na John kwenye WhatsApp · +255 698 170 989</a>
 </p>
 
 <div align="center">
