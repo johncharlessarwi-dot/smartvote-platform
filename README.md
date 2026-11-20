@@ -11,12 +11,6 @@
  
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=240&color=0:050816,35:123C69,70:6C2BD9,100:00D4FF&text=SMARTVOTE%20AI&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Intelligent%20Election%20Management%20%7C%20Digital%20Voting&descAlignY=58&descSize=16" width="100%" alt="SmartVote AI animated banner" />
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=800&color=00D4FF&center=true&vCenter=true&width=800&lines=Welcome+to+SmartVote+AI;Building+Trust+Through+Technology;Smarter+Elections.+Stronger+Democracy.;AI-Powered+Election+Insights;Innovation+Meets+Digital+Governance" alt="Animated typing introduction" />
-
-<br/>
-
 <img src="https://img.shields.io/badge/AI-Powered-8A2BE2?style=for-the-badge&logo=google&logoColor=white" alt="AI powered" />
 <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19" />
 <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
