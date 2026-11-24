@@ -628,86 +628,96 @@ export default function App() {
       </header>
 
       {/* Navigation Sub-Bar */}
-      <nav className="bg-slate-900 text-white border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 flex space-x-1 overflow-x-auto py-2.5 text-xs font-semibold">
+      <nav aria-label="Election workspace" className="bg-slate-900 text-white border-b border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap gap-1 py-2.5 text-xs font-semibold">
           <button
+            aria-current={activeTab === 'candidate-profile' ? 'page' : undefined}
             onClick={() => setActiveTab('candidate-profile')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'candidate-profile' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'candidate-profile' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <Star className="w-3.5 h-3.5 text-amber-400" />
-            <span>Candidate Campaign Site (/candidate/john-charles-sarwi)</span>
+            <span>Candidate campaign</span>
           </button>
           
           <button
+            aria-current={activeTab === 'org-login' ? 'page' : undefined}
             onClick={() => setActiveTab('org-login')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'org-login' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'org-login' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <Lock className="w-3.5 h-3.5 text-blue-400" />
-            <span>Org Login (/organization/login)</span>
+            <span>Org Login</span>
           </button>
 
           <button
+            aria-current={activeTab === 'org-dashboard' ? 'page' : undefined}
             onClick={() => setActiveTab('org-dashboard')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'org-dashboard' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'org-dashboard' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <Building2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Org Dashboard (/organization/dashboard)</span>
+            <span>Org Dashboard</span>
           </button>
 
           <button
+            aria-current={activeTab === 'org-management' ? 'page' : undefined}
             onClick={() => setActiveTab('org-management')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'org-management' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'org-management' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <Building2 className="w-3.5 h-3.5" />
             <span>Super Admin: Organizations</span>
           </button>
 
           <button
+            aria-current={activeTab === 'roles-permissions' ? 'page' : undefined}
             onClick={() => setActiveTab('roles-permissions')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'roles-permissions' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'roles-permissions' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <Key className="w-3.5 h-3.5 text-amber-400" />
             <span>Super Admin: Roles & Permissions</span>
           </button>
 
           <button
+            aria-current={activeTab === 'club-management' ? 'page' : undefined}
             onClick={() => setActiveTab('club-management')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'club-management' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'club-management' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <Layers className="w-3.5 h-3.5" />
             <span>Club Management</span>
           </button>
 
           <button
+            aria-current={activeTab === 'candidate-management' ? 'page' : undefined}
             onClick={() => setActiveTab('candidate-management')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'candidate-management' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'candidate-management' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <Users className="w-3.5 h-3.5" />
             <span>Candidate Management & Approval</span>
           </button>
 
           <button
+            aria-current={activeTab === 'audit-logs' ? 'page' : undefined}
             onClick={() => setActiveTab('audit-logs')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'audit-logs' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'audit-logs' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <ShieldAlert className="w-3.5 h-3.5" />
             <span>Audit Logs & Security</span>
           </button>
 
           <button
+            aria-current={activeTab === 'voter-portal' ? 'page' : undefined}
             onClick={() => setActiveTab('voter-portal')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'voter-portal' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'voter-portal' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <Vote className="w-3.5 h-3.5 text-emerald-400" />
             <span>Voter Portal (Register & Vote)</span>
           </button>
 
           <button
+            aria-current={activeTab === 'candidate-portal' ? 'page' : undefined}
             onClick={() => setActiveTab('candidate-portal')}
-            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 whitespace-nowrap ${activeTab === 'candidate-portal' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`px-4 py-2 rounded-lg transition flex items-center space-x-2 text-left ${activeTab === 'candidate-portal' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             <UserCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Candidate Portal (/candidate/portal)</span>
+            <span>Candidate Portal</span>
           </button>
         </div>
       </nav>
